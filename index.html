@@ -1,233 +1,548 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chayanin Angin | Portfolio</title>
-  <style>
-    /* Reset & Base Styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    body {
-      background-color: #f8fafc;
-      color: #1e293b;
-      line-height: 1.6;
-    }
-    a {
-      color: #2563eb;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chayanin Angin - Portfolio</title>
+    <!-- Google Fonts & Font Awesome Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #e6f2ff;
+            --text-color: #333333;
+            --light-text: #666666;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
 
-    /* Navigation */
-    nav {
-      position: sticky;
-      top: 0;
-      background-color: #ffffff;
-      border-bottom: 1px solid #e2e8f0;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      z-index: 100;
-    }
-    nav .logo {
-      font-weight: bold;
-      font-size: 1.2rem;
-      color: #0f172a;
-    }
-    nav ul {
-      display: flex;
-      list-style: none;
-      gap: 1.5rem;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Kanit', sans-serif;
+        }
 
-    /* Container */
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
 
-    /* Hero Section */
-    .hero {
-      padding: 3rem 0;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .hero h1 {
-      font-size: 2.5rem;
-      color: #0f172a;
-      margin-bottom: 0.5rem;
-    }
-    .hero h2 {
-      font-size: 1.25rem;
-      color: #2563eb;
-      margin-bottom: 1rem;
-      font-weight: 500;
-    }
-    .contact-info {
-      margin-top: 1rem;
-      font-size: 0.95rem;
-      color: #64748b;
-    }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    /* Sections */
-    section {
-      padding: 2.5rem 0;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    section h3 {
-      font-size: 1.5rem;
-      color: #0f172a;
-      margin-bottom: 1.25rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-    }
+        /* Navigation */
+        nav {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+        }
 
-    /* Skills Badges */
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-    .badge {
-      background-color: #eff6ff;
-      color: #1d4ed8;
-      padding: 0.4rem 0.8rem;
-      border-radius: 6px;
-      font-size: 0.875rem;
-      font-weight: 500;
-      border: 1px solid #bfdbfe;
-    }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
 
-    /* Projects Cards */
-    .project-card {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-    }
-    .project-card h4 {
-      font-size: 1.2rem;
-      color: #0f172a;
-      margin-bottom: 0.5rem;
-    }
-    .project-card ul {
-      margin-left: 1.25rem;
-      margin-bottom: 1rem;
-      color: #334155;
-    }
-    .tech-stack {
-      font-size: 0.85rem;
-      color: #64748b;
-    }
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem 0;
-      color: #94a3b8;
-      font-size: 0.875rem;
-    }
-  </style>
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 400;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 130px 0 60px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .hero-img img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-color);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-text h1 {
+            font-size: 2.5rem;
+            color: #1a1a1a;
+            margin-bottom: 5px;
+        }
+
+        .hero-text h2 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .hero-text p {
+            color: var(--light-text);
+            margin-bottom: 20px;
+            max-width: 700px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            font-size: 0.95rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--light-text);
+            text-decoration: none;
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+        }
+
+        a.contact-item:hover {
+            color: var(--primary-color);
+        }
+
+        /* Section Layout */
+        section {
+            padding: 50px 0;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+        }
+
+        .skill-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tag-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: #1a1a1a;
+        }
+
+        .project-desc {
+            color: var(--primary-color);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .project-bullets {
+            list-style-type: none;
+            margin-bottom: 20px;
+        }
+
+        .project-bullets li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .project-bullets li::before {
+            content: '•';
+            color: var(--primary-color);
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 0;
+            top: -2px;
+        }
+
+        /* GitHub & Project Links */
+        .project-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-github {
+            background: #24292e;
+            color: #fff;
+        }
+
+        .btn-github:hover {
+            background: #000;
+        }
+
+        .btn-demo {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-demo:hover {
+            background: #d0e4ff;
+        }
+
+        /* Education */
+        .timeline {
+            border-left: 3px solid var(--primary-color);
+            padding-left: 20px;
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27px;
+            top: 5px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--primary-color);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.1rem;
+        }
+
+        .timeline-item p {
+            color: var(--light-text);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            background: #fff;
+            margin-top: 40px;
+            border-top: 1px solid #eee;
+            color: var(--light-text);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 100px;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav>
-    <div class="logo">Chayanin Angin</div>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+    <!-- Navigation -->
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">Chayanin.A</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#education">Education</a></li>
+            </ul>
+        </div>
+    </nav>
 
-  <div class="container">
-    <!-- Hero / Intro -->
-    <header class="hero" id="about">
-      <h1>Chayanin Angin</h1>
-      <h2>Frontend Developer</h2>
-      <p>Computer Science student with foundational knowledge in programming, databases, and network systems. Passionate about building web applications, solving problems, and learning new technologies.</p>
-    </header>
+    <div class="container">
+        <!-- Hero / About Section -->
+        <section class="hero" id="about">
+            <div class="hero-img">
+                <!-- ใส่ชื่อไฟล์รูปภาพของคุณตรงนี้ เช่น profile.jpg -->
+                <img src="profile.jpg" alt="Chayanin Angin">
+            </div>
+            <div class="hero-text">
+                <h1>Chayanin Angin</h1>
+                <h2>Frontend Developer</h2>
+                <p>
+                    Computer Science student with foundational knowledge in programming, databases, computer systems, and networks. 
+                    Skilled in problem-solving and adaptable to new technologies. Responsible, collaborative, and eager to expand technical skills to drive professional growth in the IT industry.
+                </p>
+                <div class="contact-info">
+                    <div class="contact-item"><i class="fa-solid fa-phone"></i> 091-712-8840</div>
+                    <div class="contact-item"><i class="fa-solid fa-envelope"></i> chayaninangin@gmail.com</div>
+                    <div class="contact-item"><i class="fa-solid fa-location-dot"></i> Pathum Thani, Thailand</div>
+                    <!-- GitHub Profile Link -->
+                    <a href="https://github.com/your-github-username" target="_blank" class="contact-item">
+                        <i class="fa-brands fa-github"></i> GitHub Profile
+                    </a>
+                </div>
+            </div>
+        </section>
 
-    <!-- Skills Section -->
-    <section id="skills">
-      <h3>Skills</h3>
-      <div class="skills-grid">
-        <span class="badge">JavaScript</span>
-        <span class="badge">HTML5 & CSS3</span>
-        <span class="badge">C#</span>
-        <span class="badge">Python</span>
-        <span class="badge">Java</span>
-        <span class="badge">MySQL</span>
-        <span class="badge">ASP.NET Core MVC</span>
-        <span class="badge">REST APIs</span>
-        <span class="badge">Git</span>
-      </div>
-    </section>
+        <!-- Skills Section -->
+        <section id="skills">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-code"></i> Programming</h3>
+                    <div class="tag-container">
+                        <span class="tag">C</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">C#</span>
+                        <span class="tag">HTML/CSS</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-database"></i> Database & Backend</h3>
+                    <div class="tag-container">
+                        <span class="tag">MySQL</span>
+                        <span class="tag">ASP.NET Core MVC</span>
+                        <span class="tag">Entity Framework Core</span>
+                        <span class="tag">REST API</span>
+                    </div>
+                </div>
+                <div class="skill-card">
+                    <h3><i class="fa-solid fa-brain"></i> AI & Methodologies</h3>
+                    <div class="tag-container">
+                        <span class="tag">RAG</span>
+                        <span class="tag">AI Chatbot</span>
+                        <span class="tag">Prompt Engineering</span>
+                        <span class="tag">MVC Architecture</span>
+                        <span class="tag">System Design</span>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Projects Section -->
-    <section id="projects">
-      <h3>Projects</h3>
+        <!-- Projects Section -->
+        <section id="projects">
+            <h2 class="section-title">Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-title">SmoothDay</h3>
+                        <p class="project-desc">Online Smoothie Ordering System</p>
+                        <ul class="project-bullets">
+                            <li>Developed an online ordering system featuring authentication, cart, checkout, payment, and order tracking.</li>
+                            <li>Built an Admin dashboard to manage products, promotions, users, and orders using MVC architecture.</li>
+                            <li>Implemented Role-Based Access Control (RBAC) to manage User and Admin privileges.</li>
+                        </ul>
+                        <div class="tag-container">
+                            <span class="tag">ASP.NET Core</span>
+                            <span class="tag">C#</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">JS</span>
+                        </div>
+                    </div>
+                    <!-- ลิงก์ GitHub ของโปรเจกต์ 1 -->
+                    <div class="project-links">
+                        <a href="https://github.com/your-username/smoothday-repo" target="_blank" class="btn-link btn-github">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                        <!-- ถ้ามีเว็บตัวอย่างจริง สามารถใส่ใน href ได้ครับ -->
+                        <a href="#" target="_blank" class="btn-link btn-demo">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i> Demo
+                        </a>
+                    </div>
+                </div>
 
-      <!-- Project 1 -->
-      <div class="project-card">
-        <h4>SmoothDay — Online Smoothie Ordering System</h4>
-        <ul>
-          <li>Developed an e-commerce web platform featuring user authentication, shopping cart, checkout, payment processing, and order tracking.</li>
-          <li>Built an Admin dashboard using MVC architecture to manage products, promotions, users, and orders.</li>
-          <li>Implemented Role-Based Access Control (RBAC) to enforce User vs Admin permissions.</li>
-        </ul>
-        <div class="tech-stack"><strong>Tech:</strong> ASP.NET Core MVC, C#, Entity Framework Core, MySQL, HTML, CSS, JavaScript</div>
-      </div>
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-title">FixUp</h3>
+                        <p class="project-desc">Online Repair Request System</p>
+                        <ul class="project-bullets">
+                            <li>Built an online repair management system for submitting requests, assigning tasks, and tracking status.</li>
+                            <li>Designed role-specific workflows for Users, Technicians, and Admins using Use Case Diagrams.</li>
+                            <li>Developed relational database models and REST APIs for user registration and ticket management.</li>
+                        </ul>
+                        <div class="tag-container">
+                            <span class="tag">HTML/CSS</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">MySQL</span>
+                            <span class="tag">REST API</span>
+                        </div>
+                    </div>
+                    <!-- ลิงก์ GitHub ของโปรเจกต์ 2 -->
+                    <div class="project-links">
+                        <a href="https://github.com/your-username/fixup-repo" target="_blank" class="btn-link btn-github">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
 
-      <!-- Project 2 -->
-      <div class="project-card">
-        <h4>FixUp — Online Repair Request System</h4>
-        <ul>
-          <li>Built an online maintenance ticketing platform for submitting, routing, and tracking repair requests.</li>
-          <li>Designed role-specific workflows for Users, Technicians, and Admins using Use Case diagrams and Data Schemas.</li>
-          <li>Developed relational database models and REST APIs for ticket creation and status management.</li>
-        </ul>
-        <div class="tech-stack"><strong>Tech:</strong> HTML, CSS, JavaScript, MySQL, REST API</div>
-      </div>
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div>
+                        <h3 class="project-title">Civil & Commercial Law Chatbot</h3>
+                        <p class="project-desc">AI Legal Assistant</p>
+                        <ul class="project-bullets">
+                            <li>Developed an AI legal chatbot using RAG (Retrieval-Augmented Generation) to provide accessible legal information.</li>
+                            <li>Designed the system to answer queries on contracts, property, torts, and inheritance by fetching relevant legal codes.</li>
+                            <li>Curated the knowledge base and applied prompt engineering to deliver answers with legal clauses and disclaimers.</li>
+                        </ul>
+                        <div class="tag-container">
+                            <span class="tag">RAG</span>
+                            <span class="tag">AI Chatbot</span>
+                            <span class="tag">Knowledge Base</span>
+                            <span class="tag">Prompt Eng.</span>
+                        </div>
+                    </div>
+                    <!-- ลิงก์ GitHub ของโปรเจกต์ 3 -->
+                    <div class="project-links">
+                        <a href="https://github.com/your-username/law-chatbot-repo" target="_blank" class="btn-link btn-github">
+                            <i class="fa-brands fa-github"></i> GitHub
+                        </a>
+                    </div>
+                </div>
 
-      <!-- Project 3 -->
-      <div class="project-card">
-        <h4>Civil & Commercial Law Chatbot</h4>
-        <ul>
-          <li>Developed an AI legal chatbot using Retrieval-Augmented Generation (RAG) to provide accessible information on Thai Civil & Commercial Law.</li>
-          <li>Designed knowledge indexing to fetch relevant legal clauses for inquiries on contracts, property, and torts.</li>
-          <li>Curated knowledge bases and engineered prompt structures to deliver formatted legal answers.</li>
-        </ul>
-        <div class="tech-stack"><strong>Tech:</strong> RAG, AI Chatbot, Knowledge Base, Prompt Engineering</div>
-      </div>
-    </section>
+            </div>
+        </section>
 
-    <!-- Contact Section -->
-    <section id="contact">
-      <h3>Contact</h3>
-      <div class="contact-info">
-        <p><strong>Email:</strong> <a href="mailto:chayaninangin@gmail.com">chayaninangin@gmail.com</a></p>
-        <p><strong>Phone:</strong> 091-712-8840</p>
-        <p><strong>Location:</strong> Pathum Thani, Thailand</p>
-      </div>
-    </section>
-  </div>
+        <!-- Education Section -->
+        <section id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <h3>Bachelor of Science in Computer Science</h3>
+                    <p>Sripatum University</p>
+                </div>
+                <div class="timeline-item">
+                    <h3>High School Diploma</h3>
+                    <p>Rittiyawannalai School</p>
+                </div>
+            </div>
+        </section>
+    </div>
 
-  <footer>
-    &copy; 2026 Chayanin Angin. All rights reserved.
-  </footer>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Chayanin Angin. All rights reserved.</p>
+        </div>
+    </footer>
 
 </body>
 </html>
