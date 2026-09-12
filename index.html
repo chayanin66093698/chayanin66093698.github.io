@@ -1,921 +1,233 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Chayanin | Portfolio</title>
-
-    <style>
-        /* =========================
-           GLOBAL
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: #f8fafc;
-            line-height: 1.6;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1100px;
-            margin: auto;
-        }
-
-
-        /* =========================
-           NAVBAR
-        ========================= */
-
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(15, 23, 42, 0.95);
-            border-bottom: 1px solid #334155;
-            z-index: 1000;
-        }
-
-        nav {
-            height: 70px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        .logo span {
-            color: #38bdf8;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 30px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: #cbd5e1;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: #38bdf8;
-        }
-
-
-        /* =========================
-           HERO
-        ========================= */
-
-        #home {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 70px;
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: 1.5fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .hero h1 {
-            font-size: 60px;
-            line-height: 1.1;
-            margin-bottom: 15px;
-        }
-
-        .hero h1 span {
-            color: #38bdf8;
-        }
-
-        .hero h2 {
-            font-size: 25px;
-            color: #94a3b8;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            color: #cbd5e1;
-            max-width: 600px;
-            margin-bottom: 30px;
-        }
-
-        .buttons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 12px 25px;
-            border-radius: 8px;
-            border: 1px solid #38bdf8;
-            transition: 0.3s;
-        }
-
-        .btn-primary {
-            background: #38bdf8;
-            color: #0f172a;
-            font-weight: bold;
-        }
-
-        .btn-primary:hover {
-            background: #7dd3fc;
-        }
-
-        .btn-secondary {
-            color: #38bdf8;
-        }
-
-        .btn-secondary:hover {
-            background: #38bdf8;
-            color: #0f172a;
-        }
-
-
-        /* =========================
-           PROFILE
-        ========================= */
-
-        .profile {
-            display: flex;
-            justify-content: center;
-        }
-
-        .profile-circle {
-            width: 280px;
-            height: 280px;
-            border-radius: 50%;
-
-            background: linear-gradient(
-                135deg,
-                #38bdf8,
-                #6366f1
-            );
-
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            font-size: 70px;
-            font-weight: bold;
-
-            box-shadow: 0 0 70px rgba(56, 189, 248, 0.2);
-        }
-
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        section {
-            padding: 100px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .section-title h2 {
-            font-size: 40px;
-            margin-bottom: 10px;
-        }
-
-        .section-title p {
-            color: #94a3b8;
-        }
-
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        #about {
-            background: #111827;
-        }
-
-        .about-content {
-            max-width: 800px;
-            margin: auto;
-            text-align: center;
-            color: #cbd5e1;
-        }
-
-
-        /* =========================
-           SKILLS
-        ========================= */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .skill-card {
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
-            transition: 0.3s;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-5px);
-            border-color: #38bdf8;
-        }
-
-        .skill-card h3 {
-            margin-bottom: 10px;
-        }
-
-        .skill-card p {
-            color: #94a3b8;
-            font-size: 14px;
-        }
-
-
-        /* =========================
-           PROJECTS
-        ========================= */
-
-        #projects {
-            background: #111827;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-        }
-
-        .project-card {
-            background: #1e293b;
-            border: 1px solid #334155;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            border-color: #38bdf8;
-        }
-
-        .project-image {
-            height: 180px;
-
-            background: linear-gradient(
-                135deg,
-                #2563eb,
-                #06b6d4
-            );
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            font-size: 35px;
-            font-weight: bold;
-        }
-
-        .project-content {
-            padding: 25px;
-        }
-
-        .project-content h3 {
-            margin-bottom: 10px;
-        }
-
-        .project-content p {
-            color: #94a3b8;
-            font-size: 14px;
-            margin-bottom: 20px;
-        }
-
-        .tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-        }
-
-        .tag {
-            background: #0f172a;
-            color: #38bdf8;
-            padding: 5px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-        }
-
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact {
-            text-align: center;
-        }
-
-        .contact p {
-            color: #94a3b8;
-            margin-bottom: 25px;
-        }
-
-        .contact-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact-link {
-            background: #1e293b;
-            border: 1px solid #334155;
-            padding: 12px 20px;
-            border-radius: 8px;
-            transition: 0.3s;
-        }
-
-        .contact-link:hover {
-            border-color: #38bdf8;
-            color: #38bdf8;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            border-top: 1px solid #334155;
-            text-align: center;
-            padding: 25px;
-            color: #64748b;
-        }
-
-
-        /* =========================
-           RESPONSIVE
-        ========================= */
-
-        @media (max-width: 800px) {
-
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero p {
-                margin-left: auto;
-                margin-right: auto;
-            }
-
-            .buttons {
-                justify-content: center;
-            }
-
-            .profile {
-                order: -1;
-            }
-
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .nav-links {
-                gap: 12px;
-                font-size: 14px;
-            }
-
-            .hero h1 {
-                font-size: 45px;
-            }
-        }
-
-        @media (max-width: 500px) {
-
-            .nav-links {
-                display: none;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .profile-circle {
-                width: 220px;
-                height: 220px;
-            }
-        }
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chayanin Angin | Portfolio</title>
+  <style>
+    /* Reset & Base Styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background-color: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      background-color: #ffffff;
+      border-bottom: 1px solid #e2e8f0;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+    }
+    nav .logo {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: #0f172a;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 1.5rem;
+    }
+
+    /* Container */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 3rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+    .hero h2 {
+      font-size: 1.25rem;
+      color: #2563eb;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .contact-info {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #64748b;
+    }
+
+    /* Sections */
+    section {
+      padding: 2.5rem 0;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    section h3 {
+      font-size: 1.5rem;
+      color: #0f172a;
+      margin-bottom: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Skills Badges */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .badge {
+      background-color: #eff6ff;
+      color: #1d4ed8;
+      padding: 0.4rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.875rem;
+      font-weight: 500;
+      border: 1px solid #bfdbfe;
+    }
+
+    /* Projects Cards */
+    .project-card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .project-card h4 {
+      font-size: 1.2rem;
+      color: #0f172a;
+      margin-bottom: 0.5rem;
+    }
+    .project-card ul {
+      margin-left: 1.25rem;
+      margin-bottom: 1rem;
+      color: #334155;
+    }
+    .tech-stack {
+      font-size: 0.85rem;
+      color: #64748b;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      color: #94a3b8;
+      font-size: 0.875rem;
+    }
+  </style>
 </head>
-
-
 <body>
 
-    <!-- =========================
-         NAVBAR
-    ========================= -->
+  <!-- Navigation -->
+  <nav>
+    <div class="logo">Chayanin Angin</div>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
-    <header>
-
-        <nav class="container">
-
-            <div class="logo">
-                Chayanin<span>.</span>
-            </div>
-
-            <ul class="nav-links">
-
-                <li>
-                    <a href="#home">Home</a>
-                </li>
-
-                <li>
-                    <a href="#about">About</a>
-                </li>
-
-                <li>
-                    <a href="#skills">Skills</a>
-                </li>
-
-                <li>
-                    <a href="#projects">Projects</a>
-                </li>
-
-                <li>
-                    <a href="#contact">Contact</a>
-                </li>
-
-            </ul>
-
-        </nav>
-
+  <div class="container">
+    <!-- Hero / Intro -->
+    <header class="hero" id="about">
+      <h1>Chayanin Angin</h1>
+      <h2>Frontend Developer</h2>
+      <p>Computer Science student with foundational knowledge in programming, databases, and network systems. Passionate about building web applications, solving problems, and learning new technologies.</p>
     </header>
 
-
-    <!-- =========================
-         HOME
-    ========================= -->
-
-    <section id="home">
-
-        <div class="container hero">
-
-            <div class="hero-text">
-
-                <h1>
-                    Hi, I'm
-                    <span>Chayanin</span>
-                </h1>
-
-                <h2>
-                    IT Support & Web Developer
-                </h2>
-
-                <p>
-                    I am an IT student interested in web development,
-                    IT support, data analysis, and software development.
-                    I enjoy learning new technologies and building
-                    useful projects.
-                </p>
-
-                <div class="buttons">
-
-                    <a
-                        href="#projects"
-                        class="btn btn-primary">
-                        View My Work
-                    </a>
-
-                    <a
-                        href="#contact"
-                        class="btn btn-secondary">
-                        Contact Me
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="profile">
-
-                <div class="profile-circle">
-                    CA
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         ABOUT
-    ========================= -->
-
-    <section id="about">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>About Me</h2>
-
-                <p>Who I am</p>
-
-            </div>
-
-            <div class="about-content">
-
-                <p>
-                    I am a student with an interest in Information
-                    Technology and software development. I have
-                    experience working on web applications, chatbot
-                    systems, databases, and data analysis projects.
-                </p>
-
-                <br>
-
-                <p>
-                    My goal is to continue developing my technical
-                    skills and gain real-world experience in the
-                    IT industry.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         SKILLS
-    ========================= -->
-
+    <!-- Skills Section -->
     <section id="skills">
-
-        <div class="container">
-
-            <div class="section-title">
-
-                <h2>Skills</h2>
-
-                <p>Technologies I work with</p>
-
-            </div>
-
-
-            <div class="skills-grid">
-
-                <div class="skill-card">
-
-                    <h3>HTML & CSS</h3>
-
-                    <p>
-                        Web Development
-                    </p>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <h3>C#</h3>
-
-                    <p>
-                        Application Development
-                    </p>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <h3>ASP.NET</h3>
-
-                    <p>
-                        Web Application
-                    </p>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <h3>Python</h3>
-
-                    <p>
-                        Programming & Data
-                    </p>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <h3>MySQL</h3>
-
-                    <p>
-                        Database
-                    </p>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <h3>Git & GitHub</h3>
-
-                    <p>
-                        Version Control
-                    </p>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <h3>Data Analysis</h3>
-
-                    <p>
-                        EDA & Visualization
-                    </p>
-
-                </div>
-
-
-                <div class="skill-card">
-
-                    <h3>IT Support</h3>
-
-                    <p>
-                        Hardware & Software
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
+      <h3>Skills</h3>
+      <div class="skills-grid">
+        <span class="badge">JavaScript</span>
+        <span class="badge">HTML5 & CSS3</span>
+        <span class="badge">C#</span>
+        <span class="badge">Python</span>
+        <span class="badge">Java</span>
+        <span class="badge">MySQL</span>
+        <span class="badge">ASP.NET Core MVC</span>
+        <span class="badge">REST APIs</span>
+        <span class="badge">Git</span>
+      </div>
     </section>
 
-
-    <!-- =========================
-         PROJECTS
-    ========================= -->
-
+    <!-- Projects Section -->
     <section id="projects">
+      <h3>Projects</h3>
 
-        <div class="container">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <h4>SmoothDay — Online Smoothie Ordering System</h4>
+        <ul>
+          <li>Developed an e-commerce web platform featuring user authentication, shopping cart, checkout, payment processing, and order tracking.</li>
+          <li>Built an Admin dashboard using MVC architecture to manage products, promotions, users, and orders.</li>
+          <li>Implemented Role-Based Access Control (RBAC) to enforce User vs Admin permissions.</li>
+        </ul>
+        <div class="tech-stack"><strong>Tech:</strong> ASP.NET Core MVC, C#, Entity Framework Core, MySQL, HTML, CSS, JavaScript</div>
+      </div>
 
-            <div class="section-title">
+      <!-- Project 2 -->
+      <div class="project-card">
+        <h4>FixUp — Online Repair Request System</h4>
+        <ul>
+          <li>Built an online maintenance ticketing platform for submitting, routing, and tracking repair requests.</li>
+          <li>Designed role-specific workflows for Users, Technicians, and Admins using Use Case diagrams and Data Schemas.</li>
+          <li>Developed relational database models and REST APIs for ticket creation and status management.</li>
+        </ul>
+        <div class="tech-stack"><strong>Tech:</strong> HTML, CSS, JavaScript, MySQL, REST API</div>
+      </div>
 
-                <h2>Projects</h2>
-
-                <p>Some of my recent work</p>
-
-            </div>
-
-
-            <div class="projects-grid">
-
-
-                <!-- Project 1 -->
-
-                <div class="project-card">
-
-                    <div class="project-image">
-                        LAW CHATBOT
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3>
-                            Civil & Commercial Law Chatbot
-                        </h3>
-
-                        <p>
-                            A chatbot designed to provide basic
-                            information about Thai Civil and
-                            Commercial Law.
-                        </p>
-
-                        <div class="tags">
-
-                            <span class="tag">
-                                Python
-                            </span>
-
-                            <span class="tag">
-                                LLM
-                            </span>
-
-                            <span class="tag">
-                                RAG
-                            </span>
-
-                            <span class="tag">
-                                Ollama
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Project 2 -->
-
-                <div class="project-card">
-
-                    <div class="project-image">
-                        SMOOTHDAY
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3>
-                            SmoothDay
-                        </h3>
-
-                        <p>
-                            An online smoothie ordering website
-                            with customer and administrator
-                            management features.
-                        </p>
-
-                        <div class="tags">
-
-                            <span class="tag">
-                                ASP.NET
-                            </span>
-
-                            <span class="tag">
-                                C#
-                            </span>
-
-                            <span class="tag">
-                                MVC
-                            </span>
-
-                            <span class="tag">
-                                MySQL
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Project 3 -->
-
-                <div class="project-card">
-
-                    <div class="project-image">
-                        DATA EDA
-                    </div>
-
-                    <div class="project-content">
-
-                        <h3>
-                            Student Performance Analysis
-                        </h3>
-
-                        <p>
-                            Exploratory Data Analysis project
-                            using student performance data to
-                            discover useful insights.
-                        </p>
-
-                        <div class="tags">
-
-                            <span class="tag">
-                                Python
-                            </span>
-
-                            <span class="tag">
-                                Pandas
-                            </span>
-
-                            <span class="tag">
-                                Matplotlib
-                            </span>
-
-                            <span class="tag">
-                                EDA
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
+      <!-- Project 3 -->
+      <div class="project-card">
+        <h4>Civil & Commercial Law Chatbot</h4>
+        <ul>
+          <li>Developed an AI legal chatbot using Retrieval-Augmented Generation (RAG) to provide accessible information on Thai Civil & Commercial Law.</li>
+          <li>Designed knowledge indexing to fetch relevant legal clauses for inquiries on contracts, property, and torts.</li>
+          <li>Curated knowledge bases and engineered prompt structures to deliver formatted legal answers.</li>
+        </ul>
+        <div class="tech-stack"><strong>Tech:</strong> RAG, AI Chatbot, Knowledge Base, Prompt Engineering</div>
+      </div>
     </section>
 
-
-    <!-- =========================
-         CONTACT
-    ========================= -->
-
+    <!-- Contact Section -->
     <section id="contact">
-
-        <div class="container contact">
-
-            <div class="section-title">
-
-                <h2>Contact Me</h2>
-
-                <p>Let's connect</p>
-
-            </div>
-
-            <p>
-                Feel free to contact me if you would like
-                to discuss a project or opportunity.
-            </p>
-
-            <div class="contact-links">
-
-                <a
-                    href="mailto:your@email.com"
-                    class="contact-link">
-                    Email
-                </a>
-
-                <a
-                    href="https://github.com/"
-                    target="_blank"
-                    class="contact-link">
-                    GitHub
-                </a>
-
-                <a
-                    href="#"
-                    class="contact-link">
-                    LinkedIn
-                </a>
-
-            </div>
-
-        </div>
-
+      <h3>Contact</h3>
+      <div class="contact-info">
+        <p><strong>Email:</strong> <a href="mailto:chayaninangin@gmail.com">chayaninangin@gmail.com</a></p>
+        <p><strong>Phone:</strong> 091-712-8840</p>
+        <p><strong>Location:</strong> Pathum Thani, Thailand</p>
+      </div>
     </section>
+  </div>
 
-
-    <!-- =========================
-         FOOTER
-    ========================= -->
-
-    <footer>
-
-        <p>
-            © 2026 Chayanin Ang-in. All Rights Reserved.
-        </p>
-
-    </footer>
+  <footer>
+    &copy; 2026 Chayanin Angin. All rights reserved.
+  </footer>
 
 </body>
 </html>
-```
